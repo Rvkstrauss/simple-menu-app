@@ -1,0 +1,81 @@
+# Help? npm run help
+
+scripts:
+  # nodejs with angular.
+
+  default: node dist/www.js
+  mongo: mongod
+  map: source-map-explorer ./dist/www.js ./dist/www.js.map
+
+  concurrently:
+    default:
+      hiddenFromHelp: true
+      script: concurrently -p [{name}] -n client,server -c yellow.bold,cyan.bold
+    build:
+      hiddenFromHelp: true
+      script: concurrently -p [{name}] -n webpack,nodemon -c yellow.bold,cyan.bold
+
+  build:
+    default:
+      description: Build Client and Server bundles in parallel
+      script: nps "concurrently \"nps build.client\" \"nps build.server\""
+
+    prod:
+      description: Buid client & server bundles in parallel for PROD mode
+      script: nps "concurrently \"nps build.client.prod\" \"nps build.server.prod\""
+
+    client:
+      description: Buid client bundle
+      script: ng build
+      prod: ng build --prod
+
+    server:
+      default:
+        description: Build server bundle
+        script: webpack --config ./server.config.js --mode development
+
+      watch:
+        description: Build server bundle with WATCH mode
+        script: nps "build.server --watch"
+
+      prod:
+        description: Build server bundle for PROD mode
+        script: nps "build.server --mode production"
+
+  watch:
+    default:
+      description: Run client + server in WATCH mode
+      script: nps "concurrently \"nps watch.client\" \"nps watch.server\""
+
+    client:
+      description: Run client in watch mode
+      script: ng serve
+
+    server:
+      default:
+        description: Run server in watch mode
+        script: nps "concurrently.build \"nps \"build.server.watch\" \" \"nodemon --inspect dist/www.js\""
+
+  qa:
+    default:
+      description: Run in QA mode, for example, `npm start "qa build"` `npm start "qa watch.server"`
+      script: 'cross-env DEBUG_ENV=QA nps'
+
+  stage:
+    default:
+      description: Run in STAGE mode, for example, `npm start "stage build"` `npm start "stage watch.server"`
+      script: 'cross-env DEBUG_ENV=STAGE nps'
+
+  test:
+    default: jest
+    watch:
+      script: jest --watch
+      description: run in the amazingly intelligent Jest watch mode
+
+  lint:
+    description: Lint the entire project
+    script: nps lint.client && nps lint.server
+    client: ng lint
+    server: tslint --fix -c ./apps/server/tslint.json './apps/server/**/*{.ts,.tsx}'
+
+# nodejs with angular

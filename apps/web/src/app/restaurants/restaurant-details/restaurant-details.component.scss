@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: "Nunito Sans", sans-serif;
+    align-items: center;
+    font-weight: lighter;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h5{
+    margin-left: 100px;
+}
+
+.card{
+    padding: 0px 20px 30px 20px;
+    text-align: center;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card h5 {
+    margin-left: 0;
+}

@@ -1,0 +1,77 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+
+.card{
+    padding: 0px 20px 30px 20px;
+    text-align: center;
+    width: 89vw;
+}
+table {
+    width: 89vw;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: lighter;
+}
+th {
+
+border-bottom: 1px solid lightgrey;
+    font-weight: lighter;
+    font-size: 12px;
+    color: rgb(138, 135, 135);
+}
+tr {
+    border-bottom: 1px solid rgba(138, 137, 137, 0.747);
+}
+
+td {
+    border-bottom: 1px solid lightgrey;
+    color: #464646;
+    font-size: 14px;
+    text-align: left;
+}
+tr:hover{
+    cursor: pointer;
+    background: lightgrey;
+}
+
+.edit-btn {
+    margin-right: 100px;
+}
+
+.edit-btn, .submit-btn {
+    height: 50px;
+    background: rgb(190, 188, 188);
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-btn:hover, .submit-btn:hover {
+    cursor: pointer;
+    background: rgb(160, 160, 160);
+}
+
+.edit-btn:active, .edit-btn:focus, .submit-btn:focus, .submit-btn:active {
+    outline: none;
+}
+
+.header-row:hover {
+    background: white;
+    cursor: auto;
+}
+
+::ng-deep {
+    mat-header-row, mat-row {
+        border-bottom: 1px solid rgba(184, 184, 184, 0.918) !important;
+    }
+
+    mat-row:hover {
+        cursor: pointer;
+        background: lightgrey;
+    }
+}

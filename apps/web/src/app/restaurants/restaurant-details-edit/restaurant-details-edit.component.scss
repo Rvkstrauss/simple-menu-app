@@ -1,0 +1,70 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: "Nunito Sans", sans-serif;
+    align-items: center;
+    font-weight: lighter;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.form-field{
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+}
+
+input:focus, input:active{
+    outline: none;
+}
+
+// .menu{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+.card{
+    padding: 0px 20px 30px 20px;
+    text-align: center;
+    width: 50vw;
+}
+
+.submit-btn {
+    margin: 45px;
+}
+
+.submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

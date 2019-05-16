@@ -1,0 +1,25 @@
+
+<h5>Edit Menu Details</h5>
+<ul *ngIf="restaurant">
+    <div>{{restaurant.name}}</div>
+    <div>{{restaurant.address}}, {{restaurant.city}} {{restaurant.state}}</div>
+</ul>
+<form *ngIf="menu" #restaurantForm="ngForm" (ngSubmit)="submitUpdate(restaurantForm)" class="form form-register">
+
+    <div class="card menu" *ngIf="menu">
+        <h5>Menu</h5>    
+        <div class="menu-form">
+            <div *ngFor="let item of menu.items" class="form-field">
+                <label class="lock" for="itemName"><span class="hidden">Menu Item</span></label>
+                <input name="{{item.id}}" id="{{item.id}}" type="state" class="form-input" placeholder="{{item.name}}" ngModel required>
+                <label class="lock" for="price"><span class="hidden">Price</span></label>
+                <input name="{{item.id}}Price" id="{{item.id}}Price" type="state" class="form-input" placeholder="{{item.price}}" ngModel required>
+            </div>
+        </div>
+    </div>
+    <div class="form-field submit">
+        <button class="submit-btn" type="submit" value="Submit">Submit</button>
+        <div *ngIf="submitResponse"><img src="../../../assets/success.svg" /></div>
+        <div *ngIf="showError"><img src="../../../assets/failure.svg" /></div>
+    </div>
+</form>

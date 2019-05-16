@@ -1,0 +1,12 @@
+<div class="header">
+    <h5>Restaurant</h5>
+    <button class="edit-btn" (click)="edit()">Edit</button>
+</div>
+<ul *ngIf="restaurant">
+    <div>{{restaurant.name}}</div>
+    <div>{{restaurant.address}}, {{restaurant.city}} {{restaurant.state}}</div>
+</ul>
+<div class="card" *ngIf="menu.items">
+    <h5>Menu</h5>
+    <div *ngFor="let item of menu.items">{{item.name}}.....................{{price(item.price)}} USD</div>
+</div>

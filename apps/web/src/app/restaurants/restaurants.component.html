@@ -1,0 +1,49 @@
+<!-- <div class="card">
+    <h5>RESTAURANTS</h5>
+    <mat-table *ngIf="restaurants">
+        <thead>
+            <tr>
+                <th>Restaurant</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <restaurant *ngFor="let rest of restaurants" [restaurant]="rest"></restaurant>
+        </tbody>
+    </mat-table>
+</div> -->
+<div class="card">
+    <h5>Restaurants</h5>
+    <table *ngIf="restaurants" mat-table [dataSource]="restaurants">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Restaurant </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>City</th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>State</th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>    
+
+    <tr class="header-row" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="selectRestaurant(row)"></tr>
+    </table>
+</div>

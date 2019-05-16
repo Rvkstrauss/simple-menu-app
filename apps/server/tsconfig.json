@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@libs/*": ["../../libs/*"],
+      "@server/*": ["*"]
+    }    
+  }
+}
